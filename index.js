@@ -83,8 +83,6 @@ async function execute(message, serverQueue) {
             return message.channel.send(err);
         }
     }
-
-
     else {
         serverQueue.songs.push(song);
         console.log(serverQueue.songs);
@@ -122,6 +120,7 @@ function skip(message, serverQueue) {
     if (!serverQueue) {
         return message.channel.send("tsis muaj nkauj rau kuv hla");
     }
+    serverQueue.connection.dispatcher.end();
 }
 
 function stop(message, serverQueue) {
@@ -133,6 +132,8 @@ function stop(message, serverQueue) {
     if (!serverQueue) {
         return message.channel.send("tsis muaj nkauj rau kuv tua");
     }
+        serverQueue.songs=[];
+        serverQueue.connection.dispatcher.end();
 }
 
 mBot.login(token);
