@@ -28,7 +28,7 @@ mBot.on("message", async message => {
     if (message.content.startsWith(`${prefix}p`)) {
         execute(message, serverQueue);
         return;
-    } else if (message.content.startsWith(`${prefix}sk`)) {
+    } else if (message.content.startsWith(`${prefix}skip`)) {
         skip(message, serverQueue);
         return;
     } else if (message.content.startsWith(`${prefix}stop`)) {
